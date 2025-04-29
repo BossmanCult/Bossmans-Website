@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bossman's Website</title>
   <style>
     :root {
-      --main-bg: #f5f5f5;
-      --main-color: #333;
-      --accent-color: #4CAF50;
-      --hover-color: #45a049;
-      --glass-bg: rgba(255, 255, 255, 0.15);
-      --glass-blur: blur(10px);
-      --border-radius: 20px;
-      --transition-speed: 0.4s;
+      --main-bg: #121212;
+      --main-color: #ffffff;
+      --accent-color: #ff4747;
+      --hover-color: #ff0044;
+      --glass-bg: rgba(0, 0, 0, 0.5);
+      --glass-blur: blur(12px);
+      --border-radius: 10px;
+      --transition-speed: 0.3s;
+      --font-family: 'Orbitron', sans-serif;
     }
 
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: var(--font-family);
       background-color: var(--main-bg);
       color: var(--main-color);
       margin: 0;
@@ -31,281 +32,191 @@
       background: var(--glass-bg);
       backdrop-filter: var(--glass-blur);
       border-radius: var(--border-radius);
-      padding: 20px;
+      padding: 30px;
       margin: 20px auto;
       width: 90%;
-      max-width: 800px;
+      max-width: 900px;
       box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
       border: 1px solid rgba(255,255,255,0.18);
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       margin-bottom: 10px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      text-shadow: 3px 3px 10px rgba(255, 0, 0, 0.5);
+      letter-spacing: 3px;
     }
 
-    a {
+    a, button {
       display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      color: var(--main-color);
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: var(--border-radius);
-      transition: all var(--transition-speed);
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-    }
-
-    a:hover {
-      background-color: var(--accent-color);
-      color: #fff;
-      transform: scale(1.05);
-    }
-
-    button {
-      margin: 10px;
-      padding: 12px 25px;
+      margin: 15px;
+      padding: 15px 30px;
       font-size: 1rem;
       font-weight: bold;
+      text-decoration: none;
       border: none;
       border-radius: var(--border-radius);
       cursor: pointer;
       transition: all var(--transition-speed);
-      background: linear-gradient(45deg, #4CAF50, #2e7d32);
+      background: var(--accent-color);
       color: white;
-      box-shadow: 0 0 10px #4CAF50;
+      box-shadow: 0 0 15px rgba(255, 71, 71, 0.7);
     }
 
-    button:hover {
-      background: linear-gradient(45deg, #45a049, #1b5e20);
+    a:hover, button:hover {
+      background-color: var(--hover-color);
       transform: scale(1.05);
     }
 
-    .dark-mode {
-      --main-bg: #121212;
-      --main-color: #ffffff;
-    }
-
-    .rgb-border {
-      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
-      background-size: 1200% 1200%;
-      animation: rgbBackground 20s ease infinite;
-    }
-
-    @keyframes rgbBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .rgb-toggle-active {
-      background: transparent;
-      border: 2px solid white;
-      box-shadow: 0 0 15px white;
-      color: white;
+    .large-text {
+      font-size: 1.4em;
     }
 
     .accessibility-container {
       position: fixed;
       top: 10px;
       right: 10px;
-      background-color: #fff;
-      padding: 20px;
+      background-color: #222;
+      padding: 15px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
 
     .accessibility-container button {
-      margin: 5px;
-      background-color: #1db954;
-      color: white;
-      font-weight: bold;
+      display: block;
+      margin: 8px 0;
+      font-size: 0.9rem;
     }
 
     .keyboard-container {
       display: none;
-      background-color: #f5f5f5;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin-top: 10px;
-      border-radius: 8px;
+      margin-top: 20px;
     }
 
     .keyboard-button {
       padding: 10px;
-      margin: 5px;
-      background-color: #1db954;
+      margin: 4px;
+      background-color: #444;
       color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 6px;
     }
 
     .keyboard-button:hover {
-      background-color: #45a049;
+      background-color: #666;
     }
 
-    .large-text {
-      font-size: 1.5em;
+    .background-animation {
+      background: url('https://example.com/gamer-background.jpg') center center/cover no-repeat fixed;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      filter: blur(10px);
     }
-
-    .high-contrast {
-      background-color: #000;
-      color: #fff;
-    }
-
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <header>
-    <h1>Welcome to Bossman's Website</h1>
-  </header>
+  <div class="background-animation"></div>
 
-  <div class="glass">
-    <button id="modeToggle" onclick="toggleMode()">Switch to Dark Mode</button>
-    <button id="rgbToggle" onclick="toggleRgbBackground()">Enable RGB Background</button>
+  <div class="accessibility-container">
+    <button onclick="toggleLargeText()">Toggle Large Text</button>
+    <button onclick="toggleScreenReader()">Toggle Screen Reader</button>
+    <button onclick="toggleKeyboard()">Toggle On-Screen Keyboard</button>
   </div>
 
+  <header>
+    <h1>Bossman's Website</h1>
+  </header>
+
   <section class="glass">
-    <p>This is a professional website with my Roblox and YouTube links!</p>
-
-    <a href="https://www.roblox.com/communities/35889070/BossmanCult#!/about" target="_blank">🌟 Join My Roblox Club</a>
-    <a href="https://www.roblox.com/users/1233548926/profile" target="_blank">👤 Visit My Roblox Profile</a>
-    <a href="https://www.youtube.com/channel/UCesw4Flr6RtBsvdi2CbjJgw" target="_blank">📺 My YouTube Channel</a>
-
-    <h3 style="margin-top:30px;">Latest YouTube Video:</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HA_RmLfJeQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>Welcome to the ultimate gaming zone! Connect with me on my social media and explore some memes!</p>
+    <a href="https://www.roblox.com/communities/35889070/BossmanCult#!/about" target="_blank">🌟 Roblox Club</a>
+    <a href="https://www.roblox.com/users/1233548926/profile" target="_blank">👤 Roblox Profile</a>
+    <a href="https://www.youtube.com/channel/UCesw4Flr6RtBsvdi2CbjJgw" target="_blank">📺 YouTube Channel</a>
+    <a href="https://twitter.com/BossmanCult" target="_blank">🐦 Twitter</a>
+    <a href="https://www.twitch.tv/BossmanCult" target="_blank">🎮 Twitch</a>
+    <a href="https://kick.com/BossmanCult" target="_blank">🔥 Kick</a>
+    <a href="https://www.tiktok.com/@BossmanCult" target="_blank">🎵 TikTok</a>
   </section>
 
   <section class="glass">
-    <h3>🎵 Listen to My Spotify Playlist:</h3>
-    <iframe id="spotifyPlayer" src="https://open.spotify.com/embed/playlist/60Eznwt1yA8D9AvtyBWKVo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <h3>🎵 My Spotify Playlist:</h3>
+    <iframe src="https://open.spotify.com/embed/playlist/60Eznwt1yA8D9AvtyBWKVo?utm_source=generator"
+      width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
   </section>
+
+  <section class="glass">
+    <h3>📺 Latest YouTube Video:</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HA_RmLfJeQQ"
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+
+  <div id="keyboardContainer" class="keyboard-container glass"></div>
 
   <footer>
     <p>&copy; 2025 Bossman's Website</p>
   </footer>
 
-  <!-- Accessibility Options -->
-  <div class="accessibility-container">
-    <button onclick="toggleAccessibilityOptions()">Accessibility Options</button>
-    <div id="accessibilityOptions" style="display: none;">
-      <button onclick="toggleLargeText()">Toggle Large Text</button>
-      <button onclick="toggleHighContrast()">Toggle High Contrast</button>
-      <button onclick="toggleKeyboard()">Toggle Onscreen Keyboard</button>
-      <button onclick="toggleScreenReader()">Toggle Screen Reader</button>
-    </div>
-    <div id="keyboardContainer" class="keyboard-container"></div>
-  </div>
-
   <script>
     let screenReaderActive = false;
-    let speechSynthesisInstance = window.speechSynthesis;
-
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-      const modeButton = document.getElementById('modeToggle');
-      if (document.body.classList.contains('dark-mode')) {
-        modeButton.textContent = "Switch to Light Mode";
-      } else {
-        modeButton.textContent = "Switch to Dark Mode";
-      }
-    }
-
-    function toggleRgbBackground() {
-      document.body.classList.toggle('rgb-border');
-      const rgbButton = document.getElementById('rgbToggle');
-      if (document.body.classList.contains('rgb-border')) {
-        rgbButton.textContent = "Disable RGB Background";
-      } else {
-        rgbButton.textContent = "Enable RGB Background";
-      }
-    }
-
-    function toggleAccessibilityOptions() {
-      const options = document.getElementById('accessibilityOptions');
-      options.style.display = options.style.display === 'none' ? 'block' : 'none';
-    }
 
     function toggleLargeText() {
       document.body.classList.toggle('large-text');
     }
 
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
+    function toggleScreenReader() {
+      screenReaderActive = !screenReaderActive;
+      if (screenReaderActive) {
+        const content = document.body.innerText;
+        const speech = new SpeechSynthesisUtterance(content);
+        speech.lang = 'en-US';
+        window.speechSynthesis.speak(speech);
+      } else {
+        window.speechSynthesis.cancel();
+      }
     }
 
     function toggleKeyboard() {
       const keyboard = document.getElementById('keyboardContainer');
-      keyboard.style.display = keyboard.style.display === 'none' ? 'block' : 'none';
-      if (keyboard.style.display === 'block') {
-        generateKeyboard();
-      }
-    }
-
-    function toggleScreenReader() {
-      screenReaderActive = !screenReaderActive;
-      if (screenReaderActive) {
-        startScreenReader();
-      } else {
-        stopScreenReader();
-      }
-    }
-
-    function startScreenReader() {
-      const content = document.body.innerText;
-      const speech = new SpeechSynthesisUtterance(content);
-      speech.lang = 'en-US';
-      speechSynthesisInstance.speak(speech);
-    }
-
-    function stopScreenReader() {
-      speechSynthesisInstance.cancel();
+      keyboard.style.display = keyboard.style.display === 'block' ? 'none' : 'block';
+      if (keyboard.style.display === 'block') generateKeyboard();
     }
 
     function generateKeyboard() {
       const keyboardContainer = document.getElementById('keyboardContainer');
-      const keyboardLayout = [
-        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-        ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
-        ['Space', 'Backspace', 'Enter']
+      keyboardContainer.innerHTML = '';
+      const layout = [
+        ['Q','W','E','R','T','Y','U','I','O','P'],
+        ['A','S','D','F','G','H','J','K','L'],
+        ['Z','X','C','V','B','N','M'],
+        ['Space','Backspace','Enter']
       ];
-
-      keyboardContainer.innerHTML = '';  // Clear existing buttons
-      keyboardLayout.forEach(row => {
+      layout.forEach(row => {
         const rowDiv = document.createElement('div');
         row.forEach(key => {
           const button = document.createElement('button');
-          button.textContent = key;
           button.classList.add('keyboard-button');
-          button.onclick = () => handleKeyClick(key);
+          button.textContent = key;
+          button.onclick = () => handleKey(key);
           rowDiv.appendChild(button);
         });
         keyboardContainer.appendChild(rowDiv);
       });
     }
 
-    function handleKeyClick(key) {
-      const activeElement = document.activeElement;
-      if (activeElement && activeElement.tagName === 'TEXTAREA' || activeElement.tagName === 'INPUT') {
-        if (key === 'Space') {
-          activeElement.value += ' ';
-        } else if (key === 'Backspace') {
-          activeElement.value = activeElement.value.slice(0, -1);
-        } else if (key === 'Enter') {
-          activeElement.value += '\n';
-        } else {
-          activeElement.value += key;
-        }
-      }
+    function handleKey(key) {
+      const active = document.activeElement;
+      if (!['INPUT', 'TEXTAREA'].includes(active.tagName)) return;
+      if (key === 'Space') active.value += ' ';
+      else if (key === 'Backspace') active.value = active.value.slice(0, -1);
+      else if (key === 'Enter') active.value += '\n';
+      else active.value += key;
     }
-
   </script>
 </body>
 </html>
